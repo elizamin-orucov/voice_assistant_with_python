@@ -1,0 +1,11 @@
+certifi==2023.7.22
+charset-normalizer==3.2.0
+click==8.1.7
+colorama==0.4.6
+gTTS==2.3.2
+idna==3.4
+playsound==1.2.2
+PyAudio==0.2.13
+requests==2.31.0
+SpeechRecognition==3.10.0
+urllib3==2.0.4
