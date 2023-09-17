@@ -8,19 +8,19 @@ import os
 from dictionary import words
 
 
-r = sp_r.Recognizer()
+rcognize = sp_r.Recognizer()
 
 
 def record(ask=False):
 
-    with sp_r.Microphone() as source:
+    with sp_r.Microphone() as microphone_sound:
         if ask:
             speak(ask)
-        audio = r.listen(source)
+        audio = rcognize.listen(microphone_sound)
         voice = ""
 
         try:
-            voice = r.recognize_google(audio, language="en-EN")
+            voice = rcognize.recognize_google(audio, language="en-EN")
 
         except sp_r.UnknownValueError:
             speak("I don't understand")
@@ -34,10 +34,10 @@ def speak(data):
     tts = gTTS(data, lang="en")
     rand = random.randint(1, 10000)
 
-    file_ = f"audio-{str(rand)}.mp3"
-    tts.save(file_)
-    playsound(file_)
-    os.remove(file_)
+    sound_file = f"audio-{str(rand)}.mp3"
+    tts.save(sound_file)
+    playsound(sound_file)
+    os.remove(sound_file)
 
 
 speak("The program has been launched, how can I help you?")

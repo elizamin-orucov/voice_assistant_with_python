@@ -6,7 +6,8 @@ You can use the vioce assistant project I made according to your wishes.
 
 I made a simple voice assistant project with Python. You can speak with the sentences written in the dictionary.py file.
 The assistant will respond to the sentence you tell him.
-You can customize it by adding the sentences you want in English to the dictionary.py file. The exit command is sufficient to stop the assistant.
+You can customize it by adding the sentences you want in English to the Dictionary.py file.
+You can search on Google with the do search command. The exit command is sufficient to stop the assistant.
 
 # Installation and run
 
