@@ -3,12 +3,12 @@ import webbrowser
 import time
 from gtts import gTTS
 from playsound import playsound
+from dictionary import words
 import random
 import os
-from dictionary import words
 
 
-rcognize = sp_r.Recognizer()
+rcognizer = sp_r.Recognizer()
 
 
 def record(ask=False):
@@ -16,11 +16,11 @@ def record(ask=False):
     with sp_r.Microphone() as microphone_sound:
         if ask:
             speak(ask)
-        audio = rcognize.listen(microphone_sound)
+        audio = rcognizer.listen(microphone_sound)
         voice = ""
 
         try:
-            voice = rcognize.recognize_google(audio, language="en-EN")
+            voice = rcognizer.recognize_google(audio, language="en-EN")
 
         except sp_r.UnknownValueError:
             speak("I don't understand")
@@ -31,13 +31,13 @@ def record(ask=False):
 
 
 def speak(data):
-    tts = gTTS(data, lang="en")
+    sound_file = gTTS(data, lang="en")
     rand = random.randint(1, 10000)
 
-    sound_file = f"audio-{str(rand)}.mp3"
-    tts.save(sound_file)
-    playsound(sound_file)
-    os.remove(sound_file)
+    sound_file_name = f"audio-{str(rand)}.mp3"
+    sound_file.save(sound_file_name)
+    playsound(sound_file_name)
+    os.remove(sound_file_name)
 
 
 speak("The program has been launched, how can I help you?")
